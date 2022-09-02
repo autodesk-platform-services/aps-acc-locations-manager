@@ -1,0 +1,34 @@
+﻿html,
+body {
+  min-height: 100%;
+  height: 100%;
+}
+
+.fill {
+  height: calc(100vh - 100px);
+}
+
+body {
+  padding-top: 60px;
+  /* space for the top nav bar */
+  margin-right: 30px;
+}
+
+#userHubs {
+  overflow: auto;
+  width: 100%;
+  height: calc(100vh - 150px);
+}
+
+#locationsTree {
+  width: 100%;
+}
+
+/**
+ * ref: https://forge.autodesk.com/blog/viewer-does-not-stay-its-container
+ */
+#acc-viewport {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
