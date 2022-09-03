@@ -54,13 +54,13 @@ Clone this project or download it. It's recommended to install [GitHub Desktop](
 
 Right-click on the project, then go to **Debug**. Adjust the settings as shown below.
 
-![](Autodesk.Forge/wwwroot/img/readme/visual_studio_settings.png) 
+![](.readme/visual_studio_settings.png) 
 
 **Visual Studio Code** (Windows, MacOS):
 
 Open the folder, at the bottom-right, select **Yes** and **Restore**. This restores the packages (e.g., Autodesk.Forge) and creates the launch.json file. See *Tips & Tricks* for .NET Core on MacOS.
 
-![](Autodesk.Forge/wwwroot/img/readme/visual_code_restore.png)
+![](.readme/visual_code_restore.png)
 
 At the `.vscode\launch.json`, find the env vars and add your Forge Client ID, Secret, and callback URL. Also, define the `ASPNETCORE_URLS` variable. The end result should be as shown below:
 
@@ -81,37 +81,37 @@ Run the app. Open `http://localhost:3000` to view your files. It may be required
 1. Open the browser: http://localhost:3000.
 2. After user logging, select a project or click either tree nodes in the read line. It will load the Locations data for the selected project from the Locations service.
 
-    ![](.readme/open-locations-tree.png)
+    <img src=".readme/open-locations-tree.png" style="width:500px" /><br/>
 
 3. Once Locations are loaded, we can see the root node called `Project` on the right side. When right-clicking on it, we can create the first location node.
 
-    ![](.readme/create-first-location-node.png)
-    ![](.readme/create-first-location-node-2.png)
+    <img src=".readme/create-first-location-node.png" style="width:500px" /><br/>
+    <img src=".readme/create-first-location-node-2.png" style="width:500px" /><br/>
 
 4. When right-clicking on the non-root-typed location node, there are 4 supported operations:
 
-    ![](.readme/node-operations.png)
+    <img src=".readme/node-operations.png" style="width:500px" /><br/>
 
     * **Add sub-location node:** To add child nodes for this node.
-        ![](.readme/node-operations-1.png)
+        <br/><img src=".readme/node-operations-1.png" style="width:500px" /><br/>
     * **Add peer location node:** To add a node in the same tier/depth for this node.
-        ![](.readme/node-operations-2.png)
+        <br/><img src=".readme/node-operations-2.png" style="width:500px" /><br/>
     * **Update location data:** To update the name or barcode for this node.
-        ![](.readme/node-operations-3.png)
+        <br/><img src=".readme/node-operations-3.png" style="width:500px" /><br/>
     * **Delete this location:** To Delete selected node.
-        ![](.readme/node-operations-4.png)
+        <br/><img src=".readme/node-operations-4.png" style="width:500px" /><br/>
 
 5. When right-clicking on the model version node, the `Import locations from this model` feature will pop up. We can use it to fetch locations from the selected Revit model and import the result to Location service.
 
-    ![](.readme/import-locations-from-model.png)
+    <img src=".readme/import-locations-from-model.png" style="width:500px" /><br/>
 
-    5.1 Click `Start` here to start the importing task, and then it will prompt a warning that all existing location nodes will be deleted before importing. 
-        ![](.readme/import-locations-from-model-1.png)
-        ![](.readme/import-locations-from-model-2.png)
-    5.2 This sample will start using model properties API to query levels and rooms from the Revit model, and then import the result to the Location service.
-        ![](.readme/import-locations-from-model-3.png)
-        ![](.readme/import-locations-from-model-4.png)
-        ![](.readme/import-locations-from-model-5.png)
+    5.1 Click `Start` here to start the importing task, and then it will prompt a warning that all existing location nodes will be deleted before importing.<br/> 
+        <img src=".readme/import-locations-from-model-1.png" style="width:500px" /><br/>
+        <img src=".readme/import-locations-from-model-2.png" style="width:500px" /><br/>
+    5.2 This sample will start using model properties API to query levels and rooms from the Revit model, and then import the result to the Location service.<br/>
+        <img src=".readme/import-locations-from-model-3.png" style="width:500px" /><br/>
+        <img src=".readme/import-locations-from-model-4.png" style="width:500px" /><br/>
+        <img src=".readme/import-locations-from-model-5.png" style="width:500px" /><br/>
 
 ## Deployment
 
