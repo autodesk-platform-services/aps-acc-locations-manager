@@ -32,7 +32,7 @@ This sample is implemented based on the .NET Core version of [Learn Forge Tutori
 
 Here is the video demonstrating how this sample works quickly.
 
-![https://youtu.be/sD9AZfFpydQ](https://img.youtube.com/vi/sD9AZfFpydQ/0.jpg)
+[![](http://img.youtube.com/vi/sD9AZfFpydQ/0.jpg)](http://www.youtube.com/watch?v=sD9AZfFpydQ "Demo how to manage ACC **Locations** data and import locations from the selected Revit model.")
 
 # Web App Setup
 
