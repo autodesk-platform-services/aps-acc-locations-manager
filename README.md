@@ -19,26 +19,26 @@ This sample demonstrates the following use cases:
 * Add Locations node
   * Add sub-locations nodes
   * Add node before and after the target node. (in the same tree tier)
-* Edit and delete Locations node.
+* Edit and delete the Locations node.
 * Import Locations (Levels & Rooms) from the selected Revit model via using [Model Properties API](https://forge.autodesk.com/en/docs/acc/v1/reference/http/index-v2-index-fields-get/)
 
-This sample is implemented based on .NET Core version of [Learn Forge Tutorial](https://github.com/Autodesk-Forge/learn.forge.viewhubmodels/tree/netcore), please refer to https://learnforge.autodesk.io/ for the details about the framework.
+This sample is implemented based on the .NET Core version of [Learn Forge Tutorial](https://github.com/Autodesk-Forge/learn.forge.viewhubmodels/tree/netcore). Please refer to https://learnforge.autodesk.io/ for details about the framework.
 
 ## Thumbnail
 
-![thumbnail](thumbnail.png)
+![thumbnail](.readme/thumbnail.png)
 
 ## Demonstration
 
 Here is the video demonstrating how this sample works quickly.
 
-[![https://youtu.be/sD9AZfFpydQ]( https://img.youtube.com/vi/sD9AZfFpydQ/0.jpg)]
+![https://youtu.be/sD9AZfFpydQ](https://img.youtube.com/vi/sD9AZfFpydQ/0.jpg)
 
 # Web App Setup
 
 ## Prerequisites
 
-1. **Forge Account**: Learn how to create a Forge Account, activate subscription and create an app at [this tutorial](http://learnforge.autodesk.io/#/account/). 
+1. **Forge Account**: Learn how to create a Forge Account, activate subscription, and create an app at [this tutorial](http://learnforge.autodesk.io/#/account/). 
 2. **ACC Account**: must be Account Admin to add the app integration. [Learn about provisioning](https://forge.autodesk.com/blog/bim-360-docs-provisioning-forge-apps).
 3. **Visual Studio**: Either Community 2019+ (Windows) or Code (Windows, MacOS).
 4. **.NET 6** basic knowledge with C#
@@ -46,7 +46,7 @@ Here is the video demonstrating how this sample works quickly.
 
 ## Running locally
 
-Clone this project or download it. It's recommended to install [GitHub desktop](https://desktop.github.com/). To clone it via command line, use the following (**Terminal** on MacOSX/Linux, **Git Shell** on Windows):
+Clone this project or download it. It's recommended to install [GitHub Desktop](https://desktop.github.com/). To clone it via command line, use the following (**Terminal** on MacOSX/Linux, **Git Shell** on Windows):
 
     git clone https://github.com/autodesk-forge/forge-acc.locations.manager
 
@@ -58,11 +58,11 @@ Right-click on the project, then go to **Debug**. Adjust the settings as shown b
 
 **Visual Studio Code** (Windows, MacOS):
 
-Open the folder, at the bottom-right, select **Yes** and **Restore**. This restores the packages (e.g. Autodesk.Forge) and creates the launch.json file. See *Tips & Tricks* for .NET Core on MacOS.
+Open the folder, at the bottom-right, select **Yes** and **Restore**. This restores the packages (e.g., Autodesk.Forge) and creates the launch.json file. See *Tips & Tricks* for .NET Core on MacOS.
 
 ![](Autodesk.Forge/wwwroot/img/readme/visual_code_restore.png)
 
-At the `.vscode\launch.json`, find the env vars and add your Forge Client ID, Secret and callback URL. Also define the `ASPNETCORE_URLS` variable. The end result should be as shown below:
+At the `.vscode\launch.json`, find the env vars and add your Forge Client ID, Secret, and callback URL. Also, define the `ASPNETCORE_URLS` variable. The end result should be as shown below:
 
 ```json
 "env": {
@@ -76,13 +76,50 @@ At the `.vscode\launch.json`, find the env vars and add your Forge Client ID, Se
 
 Run the app. Open `http://localhost:3000` to view your files. It may be required to **Enable my ACC Account** (see app top-right).
 
+## Use Cases
+
+1. Open the browser: http://localhost:3000.
+2. After user logging, select a project or click either tree nodes in the read line. It will load the Locations data for the selected project from the Locations service.
+
+    ![](.readme/open-locations-tree.png)
+
+3. Once Locations are loaded, we can see the root node called `Project` on the right side. When right-clicking on it, we can create the first location node.
+
+    ![](.readme/create-first-location-node.png)
+    ![](.readme/create-first-location-node-2.png)
+
+4. When right-clicking on the non-root-typed location node, there are 4 supported operations:
+
+    ![](.readme/node-operations.png)
+
+    * **Add sub-location node:** To add child nodes for this node.
+        ![](.readme/node-operations-1.png)
+    * **Add peer location node:** To add a node in the same tier/depth for this node.
+        ![](.readme/node-operations-2.png)
+    * **Update location data:** To update the name or barcode for this node.
+        ![](.readme/node-operations-3.png)
+    * **Delete this location:** To Delete selected node.
+        ![](.readme/node-operations-4.png)
+
+5. When right-clicking on the model version node, the `Import locations from this model` feature will pop up. We can use it to fetch locations from the selected Revit model and import the result to Location service.
+
+    ![](.readme/import-locations-from-model.png)
+
+    5.1 Click `Start` here to start the importing task, and then it will prompt a warning that all existing location nodes will be deleted before importing. 
+        ![](.readme/import-locations-from-model-1.png)
+        ![](.readme/import-locations-from-model-2.png)
+    5.2 This sample will start using model properties API to query levels and rooms from the Revit model, and then import the result to the Location service.
+        ![](.readme/import-locations-from-model-3.png)
+        ![](.readme/import-locations-from-model-4.png)
+        ![](.readme/import-locations-from-model-5.png)
+
 ## Deployment
 
-To deploy this application to Heroku, the **Callback URL** for Forge must use your `.herokuapp.com` address. After clicking on the button below, at the Heroku Create New App page, set your Client ID, Secret and Callback URL for Forge.
+To deploy this application to Heroku, the **Callback URL** for Forge must use your `.herokuapp.com` address. After clicking on the button below, on the Heroku Create New App page, set your Client ID, Secret, and Callback URL for Forge.
 
 [![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy?template=https://github.com/Autodesk-Forge/forge-acc.locations.manager)
 
-Watch [this video](https://www.youtube.com/watch?v=Oqa9O20Gj0c) on how deploy samples to Heroku.
+Watch [this video](https://www.youtube.com/watch?v=Oqa9O20Gj0c) on how to deploy samples to Heroku.
 
 # Further Reading
 
@@ -98,12 +135,12 @@ Tutorials:
 
 Blogs:
 
-- [Forge Blog](https://forge.autodesk.com/categories/bim-360-api)
-- [Field of View](https://fieldofviewblog.wordpress.com/), a BIM focused blog
+- [Forge Blog](https://forge.autodesk.com/apis-and-services/autodesk-construction-cloud-acc-apis)
+- [Field of View](https://fieldofviewblog.wordpress.com/), a BIM-focused blog
 
 ### Tips & Tricks
 
-This sample uses .NET Core and works fine on both Windows and MacOS, see [this tutorial for MacOS](https://github.com/augustogoncalves/dotnetcoreheroku).
+This sample uses .NET Core and works fine on both Windows and MacOS. See [this tutorial for MacOS](https://github.com/augustogoncalves/dotnetcoreheroku).
 
 ## License
 
