@@ -20,7 +20,7 @@ This sample demonstrates the following use cases:
   * Add sub-locations nodes
   * Add node before and after the target node. (in the same tree tier)
 * Edit and delete the Locations node.
-* Import Locations (Levels & Rooms) from the selected Revit model via using [Model Properties API](https://forge.autodesk.com/en/docs/acc/v1/reference/http/index-v2-index-fields-get/)
+* Import Locations (Levels & Rooms) from the selected Revit model via using [Model Properties API](https://forge.autodesk.com/blog/bim-360acc-model-properties-api)
 
 This sample is implemented based on the .NET Core version of [Learn Forge Tutorial](https://github.com/Autodesk-Forge/learn.forge.viewhubmodels/tree/netcore). Please refer to https://learnforge.autodesk.io/ for details about the framework.
 
@@ -128,10 +128,15 @@ Documentation:
 - [Data Management API](https://forge.autodesk.com/en/docs/data/v2/overview/)
 - [Locations API Field Guid](https://forge.autodesk.com/en/docs/acc/v1/overview/field-guide/locations/)
 - [Locations API Reference](https://forge.autodesk.com/en/docs/acc/v1/reference/http/locations-nodes-GET/)
+- [Postman Collection for Locations API](https://github.com/Autodesk-Forge/forge-autodesk.build.api-postman.collection/tree/main/Locations%20API)
+- [Model Properties API Reference](https://forge.autodesk.com/en/docs/acc/v1/reference/http/index-v2-index-jobs-batch-status-post/)
 
 Tutorials:
 
 - [Configure a Locations Tree](https://forge.autodesk.com/en/docs/acc/v1/tutorials/locations/)
+- [Querying Model Properties](https://forge.autodesk.com/en/docs/acc/v1/tutorials/model-properties/query)
+- [Tracking Changes in Model Versions](https://forge.autodesk.com/en/docs/acc/v1/tutorials/model-properties/diff)
+- [Query Language Reference](https://forge.autodesk.com/en/docs/acc/v1/tutorials/model-properties/query-ref)
 
 Blogs:
 
@@ -147,7 +152,9 @@ This sample uses .NET Core and works fine on both Windows and MacOS. See [this t
 This sample is licensed under the terms of the [MIT License](http://opensource.org/licenses/MIT). Please see the [LICENSE](LICENSE) file for full details.
 
 ## Change Log
-- 09/03/2022: first release
+
+- 09/03/2022: first release.
+- 11/22/2022: update readme.
 
 ## Written by
 
