@@ -1,6 +1,6 @@
 /////////////////////////////////////////////////////////////////////
 // Copyright (c) Autodesk, Inc. All rights reserved
-// Written by Forge Partner Development
+// Written by APS Partner Development
 //
 // Permission to use, copy, modify, and distribute this software in
 // object code form for any purpose and without fee is hereby granted,
@@ -19,14 +19,15 @@
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Autodesk.Forge;
+using Autodesk.Aps;
 using Newtonsoft.Json.Linq;
 
-namespace Autodesk.Forge.Controllers
+namespace Autodesk.Aps.Controllers
 {
     public class UserController : ControllerBase
     {
         [HttpGet]
-        [Route("api/forge/user/profile")]
+        [Route("api/aps/user/profile")]
         public async Task<JObject> GetUserProfileAsync()
         {
             Credentials credentials = await Credentials.FromSessionAsync(Request.Cookies, Response.Cookies);

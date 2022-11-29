@@ -1,6 +1,6 @@
 /////////////////////////////////////////////////////////////////////
 // Copyright (c) Autodesk, Inc. All rights reserved
-// Written by Forge Partner Development
+// Written by APS Partner Development
 //
 // Permission to use, copy, modify, and distribute this software in
 // object code form for any purpose and without fee is hereby granted,
@@ -26,13 +26,14 @@ using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using Autodesk.Forge;
 using Autodesk.Forge.Model;
+using Autodesk.Aps;
 using System.IO;
 using System.Text.RegularExpressions;
-using Autodesk.Forge.Models;
+using Autodesk.Aps.Models;
 using System.Net;
 using Newtonsoft.Json.Serialization;
 
-namespace Autodesk.Forge.Libs
+namespace Autodesk.Aps.Libs
 {
     public class AccDataUtil
     {

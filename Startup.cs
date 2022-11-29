@@ -1,6 +1,6 @@
 /////////////////////////////////////////////////////////////////////
 // Copyright (c) Autodesk, Inc. All rights reserved
-// Written by Forge Partner Development
+// Written by APS Partner Development
 //
 // Permission to use, copy, modify, and distribute this software in
 // object code form for any purpose and without fee is hereby granted,
@@ -32,7 +32,7 @@ using bim360assets.Models.Repositories;
 using Microsoft.Extensions.Logging;
 using bim360assets.Services;
 
-namespace Autodesk.Forge
+namespace Autodesk.Aps
 {
     public class Startup
     {

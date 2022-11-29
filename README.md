@@ -4,12 +4,12 @@
 ![.NET](https://img.shields.io/badge/.NET%20-6.0-blue.svg)
 [![MIT](https://img.shields.io/badge/License-MIT-blue.svg)](http://opensource.org/licenses/MIT)
 
-[![oAuth2](https://img.shields.io/badge/oAuth2-v1-green.svg)](http://forge.autodesk.com/)
-[![Data-Management](https://img.shields.io/badge/Data%20Management-v1-green.svg)](http://forge.autodesk.com/)
-[![ACC Locations API](https://img.shields.io/badge/ACC%20Locations%20api-v1-green.svg)](https://forge.autodesk.com/en/docs/acc/v1/reference/http/locations-nodes-GET/)
-[![ACC Model Properties API](https://img.shields.io/badge/ACC%20Model%20Properties%20api-v1-green.svg)](https://forge.autodesk.com/en/docs/acc/v1/reference/http/index-v2-index-fields-get/)
+[![oAuth2](https://img.shields.io/badge/oAuth2-v1-green.svg)](http://aps.autodesk.com/)
+[![Data-Management](https://img.shields.io/badge/Data%20Management-v1-green.svg)](http://aps.autodesk.com/)
+[![ACC Locations API](https://img.shields.io/badge/ACC%20Locations%20api-v1-green.svg)](https://aps.autodesk.com/en/docs/acc/v1/reference/http/locations-nodes-GET/)
+[![ACC Model Properties API](https://img.shields.io/badge/ACC%20Model%20Properties%20api-v1-green.svg)](https://aps.autodesk.com/en/docs/acc/v1/reference/http/index-v2-index-fields-get/)
 
-[![Level](https://img.shields.io/badge/Level-Intermediate-blue.svg)](http://developer.autodesk.com/)
+[![Level](https://img.shields.io/badge/Level-Basic-blue.svg)](http://developer.autodesk.com/)
 
 # Description
 
@@ -20,9 +20,8 @@ This sample demonstrates the following use cases:
   * Add sub-locations nodes
   * Add node before and after the target node. (in the same tree tier)
 * Edit and delete the Locations node.
-* Import Locations (Levels & Rooms) from the selected Revit model via using [Model Properties API](https://forge.autodesk.com/blog/bim-360acc-model-properties-api)
+* Import Locations (Levels & Rooms) from the selected Revit model via using [Model Properties API](https://aps.autodesk.com/blog/bim-360acc-model-properties-api)
 
-This sample is implemented based on the .NET Core version of [Learn Forge Tutorial](https://github.com/Autodesk-Forge/learn.forge.viewhubmodels/tree/netcore). Please refer to https://learnforge.autodesk.io/ for details about the framework.
 
 ## Thumbnail
 
@@ -38,8 +37,8 @@ Here is the video demonstrating how this sample works quickly.
 
 ## Prerequisites
 
-1. **Forge Account**: Learn how to create a Forge Account, activate subscription, and create an app at [this tutorial](http://learnforge.autodesk.io/#/account/). 
-2. **ACC Account**: must be Account Admin to add the app integration. [Learn about provisioning](https://forge.autodesk.com/blog/bim-360-docs-provisioning-forge-apps).
+1. **APS Account**: Learn how to create a APS Account, activate your subscription, and create an app at [this tutorial](http://aps.autodesk.com/tutorials/#/account/).
+2. **ACC Account**: must be Account Admin to add the app integration. [Learn about provisioning](https://aps.autodesk.com/en/docs/bim360/v1/tutorials/getting-started/manage-access-to-docs/).
 3. **Visual Studio**: Either Community 2019+ (Windows) or Code (Windows, MacOS).
 4. **.NET 6** basic knowledge with C#
 5. **JavaScript** basic knowledge with **jQuery**
@@ -48,7 +47,7 @@ Here is the video demonstrating how this sample works quickly.
 
 Clone this project or download it. It's recommended to install [GitHub Desktop](https://desktop.github.com/). To clone it via command line, use the following (**Terminal** on MacOSX/Linux, **Git Shell** on Windows):
 
-    git clone https://github.com/autodesk-forge/forge-acc.locations.manager
+    git clone https://github.com/autodesk-platform-services/aps-acc.locations.manager
 
 **Visual Studio** (Windows):
 
@@ -58,19 +57,19 @@ Right-click on the project, then go to **Debug**. Adjust the settings as shown b
 
 **Visual Studio Code** (Windows, MacOS):
 
-Open the folder, at the bottom-right, select **Yes** and **Restore**. This restores the packages (e.g., Autodesk.Forge) and creates the launch.json file. See *Tips & Tricks* for .NET Core on MacOS.
+Open the folder, at the bottom-right, select **Yes** and **Restore**. This restores the packages and creates the launch.json file. See *Tips & Tricks* for .NET Core on MacOS.
 
 ![](.readme/visual_code_restore.png)
 
-At the `.vscode\launch.json`, find the env vars and add your Forge Client ID, Secret, and callback URL. Also, define the `ASPNETCORE_URLS` variable. The end result should be as shown below:
+At the `.vscode\launch.json`, find the env vars and add your APS Client ID, Secret, and callback URL. Also, define the `ASPNETCORE_URLS` variable. The end result should be as shown below:
 
 ```json
 "env": {
     "ASPNETCORE_ENVIRONMENT": "Development",
     "ASPNETCORE_URLS" : "http://localhost:3000",
-    "FORGE_CLIENT_ID": "your id here",
-    "FORGE_CLIENT_SECRET": "your secret here",
-    "FORGE_CALLBACK_URL": "http://localhost:3000/api/forge/callback/oauth",
+    "APS_CLIENT_ID": "your id here",
+    "APS_CLIENT_SECRET": "your secret here",
+    "APS_CALLBACK_URL": "http://localhost:3000/api/aps/callback/oauth",
 },
 ```
 
@@ -115,9 +114,9 @@ Run the app. Open `http://localhost:3000` to view your files. It may be required
 
 ## Deployment
 
-To deploy this application to Heroku, the **Callback URL** for Forge must use your `.herokuapp.com` address. After clicking on the button below, on the Heroku Create New App page, set your Client ID, Secret, and Callback URL for Forge.
+To deploy this application to Heroku, the **Callback URL** for APS must use your `.herokuapp.com` address. After clicking on the button below, on the Heroku Create New App page, set your Client ID, Secret, and Callback URL for APS.
 
-[![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy?template=https://github.com/Autodesk-Forge/forge-acc.locations.manager)
+[![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy?template=https://github.com/autodesk-platform-services/aps-acc.locations.manager)
 
 Watch [this video](https://www.youtube.com/watch?v=Oqa9O20Gj0c) on how to deploy samples to Heroku.
 
@@ -125,22 +124,22 @@ Watch [this video](https://www.youtube.com/watch?v=Oqa9O20Gj0c) on how to deploy
 
 Documentation:
 
-- [Data Management API](https://forge.autodesk.com/en/docs/data/v2/overview/)
-- [Locations API Field Guid](https://forge.autodesk.com/en/docs/acc/v1/overview/field-guide/locations/)
-- [Locations API Reference](https://forge.autodesk.com/en/docs/acc/v1/reference/http/locations-nodes-GET/)
-- [Postman Collection for Locations API](https://github.com/Autodesk-Forge/forge-autodesk.build.api-postman.collection/tree/main/Locations%20API)
-- [Model Properties API Reference](https://forge.autodesk.com/en/docs/acc/v1/reference/http/index-v2-index-jobs-batch-status-post/)
+- [Data Management API](https://aps.autodesk.com/en/docs/data/v2/overview/)
+- [Locations API Field Guid](https://aps.autodesk.com/en/docs/acc/v1/overview/field-guide/locations/)
+- [Locations API Reference](https://aps.autodesk.com/en/docs/acc/v1/reference/http/locations-nodes-GET/)
+- [Postman Collection for Locations API](https://github.com/autodesk-platform-services/aps-autodesk.build.api-postman.collection/tree/main/Locations%20API)
+- [Model Properties API Reference](https://aps.autodesk.com/en/docs/acc/v1/reference/http/index-v2-index-jobs-batch-status-post/)
 
 Tutorials:
 
-- [Configure a Locations Tree](https://forge.autodesk.com/en/docs/acc/v1/tutorials/locations/)
-- [Querying Model Properties](https://forge.autodesk.com/en/docs/acc/v1/tutorials/model-properties/query)
-- [Tracking Changes in Model Versions](https://forge.autodesk.com/en/docs/acc/v1/tutorials/model-properties/diff)
-- [Query Language Reference](https://forge.autodesk.com/en/docs/acc/v1/tutorials/model-properties/query-ref)
+- [Configure a Locations Tree](https://aps.autodesk.com/en/docs/acc/v1/tutorials/locations/)
+- [Querying Model Properties](https://aps.autodesk.com/en/docs/acc/v1/tutorials/model-properties/query)
+- [Tracking Changes in Model Versions](https://aps.autodesk.com/en/docs/acc/v1/tutorials/model-properties/diff)
+- [Query Language Reference](https://aps.autodesk.com/en/docs/acc/v1/tutorials/model-properties/query-ref)
 
 Blogs:
 
-- [Forge Blog](https://forge.autodesk.com/apis-and-services/autodesk-construction-cloud-acc-apis)
+- [APS Blog](https://aps.autodesk.com/apis-and-services/autodesk-construction-cloud-acc-apis)
 - [Field of View](https://fieldofviewblog.wordpress.com/), a BIM-focused blog
 
 ### Tips & Tricks
@@ -158,4 +157,4 @@ This sample is licensed under the terms of the [MIT License](http://opensource.o
 
 ## Written by
 
-Eason Kang [@yiskang](https://twitter.com/yiskang), [Forge Partner Development](http://forge.autodesk.com)
+Eason Kang [@yiskang](https://twitter.com/yiskang), [APS Partner Development](http://aps.autodesk.com)
