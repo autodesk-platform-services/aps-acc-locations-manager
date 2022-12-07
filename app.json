@@ -28,7 +28,7 @@
     "success_url": "/",
     "buildpacks": [
         {
-            "url": "https://github.com/jincod/dotnetcore-buildpack.git"
+            "url": "https://github.com/jincod/dotnetcore-buildpack#v6.0.100"
         }
     ]
 }
