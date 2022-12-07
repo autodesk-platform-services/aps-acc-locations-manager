@@ -152,8 +152,9 @@ This sample is licensed under the terms of the [MIT License](http://opensource.o
 
 ## Change Log
 
-- 09/03/2022: first release.
-- 11/22/2022: update readme.
+- 09/03/2022: First release.
+- 11/22/2022: Update readme.
+- 12/07/2022: Migrated to use `Startup.cs` approach to configure the app.
 
 ## Written by
 
