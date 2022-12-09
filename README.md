@@ -25,7 +25,7 @@ This sample demonstrates the following use cases:
 
 ## Thumbnail
 
-![thumbnail](.readme/thumbnail.png)
+![thumbnail](./thumbnail.png)
 
 ## Demonstration
 
