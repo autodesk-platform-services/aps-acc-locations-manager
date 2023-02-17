@@ -1,7 +1,7 @@
 # ACC Locations Manager Sample
 
 ![Platforms](https://img.shields.io/badge/platform-Windows|MacOS-lightgray.svg)
-![.NET](https://img.shields.io/badge/.NET%20-6.0-blue.svg)
+![.NET](https://img.shields.io/badge/.NET%20-7.0-blue.svg)
 [![MIT](https://img.shields.io/badge/License-MIT-blue.svg)](http://opensource.org/licenses/MIT)
 
 [![oAuth2](https://img.shields.io/badge/oAuth2-v1-green.svg)](http://aps.autodesk.com/)
@@ -40,7 +40,7 @@ Here is the video demonstrating how this sample works quickly.
 1. **APS Account**: Learn how to create a APS Account, activate your subscription, and create an app at [this tutorial](http://aps.autodesk.com/tutorials/#/account/).
 2. **ACC Account**: must be Account Admin to add the app integration. [Learn about provisioning](https://aps.autodesk.com/en/docs/bim360/v1/tutorials/getting-started/manage-access-to-docs/).
 3. **Visual Studio**: Either Community 2019+ (Windows) or Code (Windows, MacOS).
-4. **.NET 6** basic knowledge with C#
+4. **.NET 7** basic knowledge with C#
 5. **JavaScript** basic knowledge with **jQuery**
 
 ## Running locally
@@ -57,7 +57,7 @@ Right-click on the project, then go to **Debug**. Adjust the settings as shown b
 
 **Visual Studio Code** (Windows, MacOS):
 
-Open the folder, at the bottom-right, select **Yes** and **Restore**. This restores the packages and creates the launch.json file. See *Tips & Tricks* for .NET Core on MacOS.
+Open the folder, at the bottom-right, select **Yes** and **Restore**. This restores the packages and creates the launch.json file. See *Tips & Tricks* for .NET on MacOS.
 
 ![](.readme/visual_code_restore.png)
 
@@ -144,7 +144,7 @@ Blogs:
 
 ### Tips & Tricks
 
-This sample uses .NET Core and works fine on both Windows and MacOS. See [this tutorial for MacOS](https://github.com/augustogoncalves/dotnetcoreheroku).
+This sample uses .NET and works fine on both Windows and MacOS. See [this tutorial for MacOS](https://github.com/augustogoncalves/dotnetcoreheroku).
 
 ## License
 
@@ -155,6 +155,7 @@ This sample is licensed under the terms of the [MIT License](http://opensource.o
 - 09/03/2022: First release.
 - 11/22/2022: Update readme.
 - 12/07/2022: Migrated to use `Startup.cs` approach to configure the app.
+- 02/17/2023: Migrated to .NET 7.
 
 ## Written by
 
