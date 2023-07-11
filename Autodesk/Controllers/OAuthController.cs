@@ -20,6 +20,7 @@ using System;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Autodesk.Forge;
+using Autodesk.Forge.Api;
 using Autodesk.Aps;
 using Newtonsoft.Json;
 using Microsoft.AspNetCore.Http;
@@ -75,7 +76,7 @@ namespace Autodesk.Aps.Controllers
         {
             // prepare the sign in URL
             Scope[] scopes = { Scope.DataRead };
-            ThreeLeggedApi _threeLeggedApi = new ThreeLeggedApi();
+            ThreeLeggedApiV2 _threeLeggedApi = new ThreeLeggedApiV2();
             string oauthUrl = _threeLeggedApi.Authorize(
               Credentials.GetAppSetting("APS_CLIENT_ID"),
               oAuthConstants.CODE,
