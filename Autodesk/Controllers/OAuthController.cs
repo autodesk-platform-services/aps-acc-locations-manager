@@ -76,7 +76,7 @@ namespace Autodesk.Aps.Controllers
         {
             // prepare the sign in URL
             Scope[] scopes = { Scope.DataRead };
-            ThreeLeggedApiV2 _threeLeggedApi = new ThreeLeggedApiV2();
+            ThreeLeggedApi _threeLeggedApi = new ThreeLeggedApi();
             string oauthUrl = _threeLeggedApi.Authorize(
               Credentials.GetAppSetting("APS_CLIENT_ID"),
               oAuthConstants.CODE,
