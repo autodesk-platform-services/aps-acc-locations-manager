@@ -16,43 +16,30 @@
 // UNINTERRUPTED OR ERROR FREE.
 /////////////////////////////////////////////////////////////////////
 
-using System;
 using System.Text;
-using System.Net;
-using System.Threading.Tasks;
-using System.Collections.Generic;
-using System.Linq;
 using Microsoft.AspNetCore.Mvc;
-using Autodesk.Forge;
-using Autodesk.Aps;
-using RestSharp;
-using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using Autodesk.Aps.Models;
-using System.Web;
-using Microsoft.AspNetCore.Http.Extensions;
-using Microsoft.AspNetCore.WebUtilities;
-using System.Text.RegularExpressions;
-using Microsoft.AspNetCore.Http;
 using Autodesk.Aps.Libs;
 
 namespace Autodesk.Aps.Controllers
 {
-    public partial class AccController : ControllerBase
+    [ApiController]
+    [Route("api/[controller]")]
+    public partial class AccController : OAuthBasedController
     {
-        private const string BASE_URL = "https://developer.api.autodesk.com";
+        private readonly ILogger<AccController> _logger;
+
+        public AccController(ILogger<AccController> logger, APS aps) : base(aps)
+        {
+            _logger = logger;
+        }
 
         [HttpGet]
-        [Route("api/aps/acc/projects/{projectId}/locations")]
+        [Route("projects/{projectId}/locations")]
         public async Task<IActionResult> GetLocationsAsync(string projectId)
         {
-            Credentials credentials = await Credentials.FromSessionAsync(base.Request.Cookies, Response.Cookies);
-            if (credentials == null)
-            {
-                throw new InvalidOperationException("Failed to refresh access token");
-            }
-
-            var locations = await AccDataUtil.GetLocationsAsync(credentials.TokenInternal, projectId);
+            var locations = await AccDataUtil.GetLocationsAsync(projectId, this._tokens);
 
             var data = locations.Results.OrderBy(node => node.Order)
             .Select(node => new
@@ -68,15 +55,9 @@ namespace Autodesk.Aps.Controllers
         }
 
         [HttpPost]
-        [Route("api/aps/acc/projects/{projectId}/locations")]
+        [Route("projects/{projectId}/locations")]
         public async Task<IActionResult> CreateLocationAsync(string projectId, [FromBody] JObject payload)
         {
-            Credentials credentials = await Credentials.FromSessionAsync(base.Request.Cookies, Response.Cookies);
-            if (credentials == null)
-            {
-                throw new InvalidOperationException("Failed to refresh access token");
-            }
-
             string name = ((dynamic)payload).name;
             string barcode = ((dynamic)payload).barcode;
             string parentId = ((dynamic)payload).parentId;
@@ -109,7 +90,7 @@ namespace Autodesk.Aps.Controllers
 
             try
             {
-                var result = await AccDataUtil.CreateLocationsNodeAsync(credentials.TokenInternal, projectId, location, targetNodeId, insertOption);
+                var result = await AccDataUtil.CreateLocationsNodeAsync(projectId, location, this._tokens, targetNodeId, insertOption);
                 if (result == null)
                     throw new InvalidOperationException("Failed to create new node");
 
@@ -122,15 +103,9 @@ namespace Autodesk.Aps.Controllers
         }
 
         [HttpPatch]
-        [Route("api/aps/acc/projects/{projectId}/locations/{nodeId}")]
+        [Route("projects/{projectId}/locations/{nodeId}")]
         public async Task<IActionResult> UpdateLocationAsync(string projectId, string nodeId, [FromBody] JObject payload)
         {
-            Credentials credentials = await Credentials.FromSessionAsync(base.Request.Cookies, Response.Cookies);
-            if (credentials == null)
-            {
-                throw new InvalidOperationException("Failed to refresh access token");
-            }
-
             string name = ((dynamic)payload).name;
             string barcode = ((dynamic)payload).barcode;
 
@@ -151,7 +126,7 @@ namespace Autodesk.Aps.Controllers
 
             try
             {
-                var result = await AccDataUtil.PatchLocationsNodeAsync(credentials.TokenInternal, projectId, nodeId, data);
+                var result = await AccDataUtil.PatchLocationsNodeAsync(projectId, nodeId, data, this._tokens);
                 if (result == null)
                     throw new InvalidOperationException($"Failed to update the node `{nodeId}`");
 
@@ -164,18 +139,12 @@ namespace Autodesk.Aps.Controllers
         }
 
         [HttpDelete]
-        [Route("api/aps/acc/projects/{projectId}/locations/{nodeId}")]
+        [Route("projects/{projectId}/locations/{nodeId}")]
         public async Task<IActionResult> DeleteLocationAsync(string projectId, string nodeId)
         {
-            Credentials credentials = await Credentials.FromSessionAsync(base.Request.Cookies, Response.Cookies);
-            if (credentials == null)
-            {
-                throw new InvalidOperationException("Failed to refresh access token");
-            }
-
             try
             {
-                var result = await AccDataUtil.DeleteLocationsNodeAsync(credentials.TokenInternal, projectId, nodeId);
+                var result = await AccDataUtil.DeleteLocationsNodeAsync(projectId, nodeId, this._tokens);
                 if (result == false)
                     throw new InvalidOperationException($"Failed to delete the node `{nodeId}`");
 
@@ -188,18 +157,12 @@ namespace Autodesk.Aps.Controllers
         }
 
         [HttpDelete]
-        [Route("api/aps/acc/projects/{projectId}/locations:destroy")]
-        public async Task<IActionResult> DestroyLocationTreeAsync(string projectId, string nodeId)
+        [Route("projects/{projectId}/locations:destroy")]
+        public async Task<IActionResult> DestroyLocationTreeAsync(string projectId)
         {
-            Credentials credentials = await Credentials.FromSessionAsync(base.Request.Cookies, Response.Cookies);
-            if (credentials == null)
-            {
-                throw new InvalidOperationException("Failed to refresh access token");
-            }
-
             try
             {
-                var result = await AccDataUtil.DestroyLocationTreeAsync(credentials.TokenInternal, projectId);
+                var result = await AccDataUtil.DestroyLocationTreeAsync(projectId, this._tokens);
                 if (result == false)
                     throw new InvalidOperationException("Failed to destroy the tree");
 
@@ -212,15 +175,9 @@ namespace Autodesk.Aps.Controllers
         }
 
         [HttpPost]
-        [Route("api/aps/acc/projects/{projectId}/locations:import")]
+        [Route("projects/{projectId}/locations:import")]
         public async Task<IActionResult> ImportLocations([FromRoute] string projectId, [FromBody] JObject payload)
         {
-            Credentials credentials = await Credentials.FromSessionAsync(base.Request.Cookies, Response.Cookies);
-            if (credentials == null)
-            {
-                throw new InvalidOperationException("Failed to refresh access token");
-            }
-
             string urn = ((dynamic)payload).urn;
             if (string.IsNullOrWhiteSpace(urn))
                 return BadRequest(new
@@ -232,7 +189,7 @@ namespace Autodesk.Aps.Controllers
             byte[] data = Convert.FromBase64String(urn.Replace('_', '/'));
             string versionId = Encoding.UTF8.GetString(data);
 
-            var locations = await AccDataUtil.ImportLocationsFromModelPropsAsync(credentials.TokenInternal, projectId, versionId);
+            var locations = await AccDataUtil.ImportLocationsFromModelPropsAsync(projectId, versionId, this._tokens, this._aps);
 
             return Ok(locations);
         }

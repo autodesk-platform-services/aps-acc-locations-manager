@@ -19,7 +19,7 @@
 $(document).ready(function () {
   // first, check if current visitor is signed in
   jQuery.ajax({
-    url: '/api/aps/oauth/token',
+    url: '/api/auth/token',
     success: function (res) {
       // yes, it is signed in...
       $('#signOut').show();
@@ -28,7 +28,7 @@ $(document).ready(function () {
       // prepare sign out
       $('#signOut').click(function () {
         $('#hiddenFrame').on('load', function (event) {
-          location.href = '/api/aps/oauth/signout';
+          location.href = '/api/auth/logout';
         });
         $('#hiddenFrame').attr('src', 'https://accounts.autodesk.com/Authentication/LogOut');
         // learn more about this signout iframe at
@@ -47,12 +47,7 @@ $(document).ready(function () {
   });
 
   $('#autodeskSigninButton').click(function () {
-    jQuery.ajax({
-      url: '/api/aps/oauth/url',
-      success: function (url) {
-        location.href = url;
-      }
-    });
+    window.location.replace('/api/auth/login');
   });
 
   $('#createNewLocation').click(function () {
@@ -69,7 +64,7 @@ $(document).ready(function () {
     };
 
     jQuery.post({
-      url: `/api/aps/acc/projects/${projectId}/locations`,
+      url: `/api/acc/projects/${projectId}/locations`,
       contentType: 'application/json',
       data: JSON.stringify(data),
       success: function (data) {
@@ -100,7 +95,7 @@ $(document).ready(function () {
     };
 
     jQuery.post({
-      url: `/api/aps/acc/projects/${projectId}/locations`,
+      url: `/api/acc/projects/${projectId}/locations`,
       contentType: 'application/json',
       data: JSON.stringify(data),
       success: function (data) {
@@ -129,7 +124,7 @@ $(document).ready(function () {
     };
 
     jQuery.ajax({
-      url: `/api/aps/acc/projects/${projectId}/locations/${nodeId}`,
+      url: `/api/acc/projects/${projectId}/locations/${nodeId}`,
       method: 'patch',
       contentType: 'application/json',
       data: JSON.stringify(data),
@@ -155,7 +150,7 @@ $(document).ready(function () {
     let nodeId = selectedLocationNode.id.replace('lbs_', '');
 
     jQuery.ajax({
-      url: `/api/aps/acc/projects/${projectId}/locations/${nodeId}`,
+      url: `/api/acc/projects/${projectId}/locations/${nodeId}`,
       method: 'delete',
       contentType: 'application/json',
       success: function (data) {
@@ -191,7 +186,7 @@ $(document).ready(function () {
     let itemId = idParams[idParams.length - 1].replace('b.', '');
 
     jQuery.ajax({
-      url: `/api/aps/acc/projects/${projectId}/locations:destroy`,
+      url: `/api/acc/projects/${projectId}/locations:destroy`,
       method: 'delete',
       contentType: 'application/json',
       success: function (data) {
@@ -201,7 +196,7 @@ $(document).ready(function () {
         $('#importModelLocationFromModelProgressBar p').text('1/2 Fetching and importing locations data from model ...');
 
         jQuery.post({
-          url: `/api/aps/acc/projects/${projectId}/locations:import`,
+          url: `/api/acc/projects/${projectId}/locations:import`,
           contentType: 'application/json',
           data: JSON.stringify({
             urn
@@ -253,7 +248,7 @@ $(document).ready(function () {
     });
   });
 
-  $.getJSON('/api/aps/clientid', function (res) {
+  $.getJSON('/api/auth/clientid', function (res) {
     $('#ClientID').val(res.id);
     $('#provisionAccountSave').click(function () {
       $('#provisionAccountModal').modal('toggle');
@@ -269,7 +264,7 @@ function prepareUserHubsTree() {
       'themes': { 'icons': true },
       'multiple': false,
       'data': {
-        'url': '/api/aps/datamanagement',
+        'url': '/api/datamanagement',
         'dataType': 'json',
         'cache': false,
         'data': function (node) {
@@ -463,7 +458,7 @@ function autodeskCustomMenu(autodeskNode, buildContextMenu) {
 
 function showUser() {
   jQuery.ajax({
-    url: '/api/aps/user/profile',
+    url: '/api/auth/profile',
     success: function (profile) {
       var img = '<img src="' + profile.picture + '" height="30px">';
       $('#userInfo').html(img + profile.name);

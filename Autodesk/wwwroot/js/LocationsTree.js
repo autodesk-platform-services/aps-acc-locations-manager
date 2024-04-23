@@ -34,7 +34,7 @@ function prepareLocationsTree(projectId) {
             'themes': { 'icons': true },
             'multiple': false,
             'data': {
-                'url': `/api/aps/acc/projects/${projectId}/locations`,
+                'url': `/api/acc/projects/${projectId}/locations`,
                 'dataType': 'json',
                 'cache': false,
                 'data': function (node) {

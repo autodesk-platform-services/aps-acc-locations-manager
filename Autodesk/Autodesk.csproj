@@ -7,8 +7,12 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Autodesk.Forge" Version="1.9.9" />
+    <PackageReference Include="Autodesk.Authentication" Version="1.0.0" />
+    <PackageReference Include="Autodesk.DataManagement" Version="1.0.0" />
+    <PackageReference Include="Autodesk.ModelDerivative" Version="1.0.0" />
+    <PackageReference Include="Autodesk.SdkManager" Version="1.0.0" />
     <PackageReference Include="Microsoft.AspNetCore.Mvc.NewtonsoftJson" Version="6.0.8" />
+    <PackageReference Include="RestSharp" Version="110.2.0" />
   </ItemGroup>
 
 </Project>

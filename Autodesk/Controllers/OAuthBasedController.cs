@@ -1,6 +1,6 @@
 /////////////////////////////////////////////////////////////////////
 // Copyright (c) Autodesk, Inc. All rights reserved
-// Written by Developer Advocate and Support
+// Written by APS Partner Development
 //
 // Permission to use, copy, modify, and distribute this software in
 // object code form for any purpose and without fee is hereby granted,
@@ -16,21 +16,32 @@
 // UNINTERRUPTED OR ERROR FREE.
 /////////////////////////////////////////////////////////////////////
 
-namespace Autodesk.Aps.Models
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Filters;
+using Autodesk.Aps.Models;
+
+namespace Autodesk.Aps.Controllers
 {
-    public class JsTreeNode
+    [ApiController]
+    public partial class OAuthBasedController : Controller
     {
-        public JsTreeNode(string id, string text, string type, bool children)
+        protected readonly APS _aps;
+        protected Tokens _tokens;
+
+        public override async void OnActionExecuting(ActionExecutingContext filterContext)
         {
-            this.id = id;
-            this.text = text;
-            this.type = type;
-            this.children = children;
+            base.OnActionExecuting(filterContext);
+
+            this._tokens = await AuthController.PrepareTokens(Request, Response, _aps);
+            if (this._tokens == null)
+            {
+                filterContext.Result = Unauthorized();
+            }
         }
 
-        public string id { get; set; }
-        public string text { get; set; }
-        public string type { get; set; }
-        public bool children { get; set; }
+        public OAuthBasedController(APS aps)
+        {
+            _aps = aps;
+        }
     }
 }
