@@ -159,4 +159,4 @@ This sample is licensed under the terms of the [MIT License](http://opensource.o
 
 ## Written by
 
-Eason Kang [@yiskang](https://twitter.com/yiskang), [APS Partner Development](http://aps.autodesk.com)
+Eason Kang [in/eason-kang-b4398492/](https://www.linkedin.com/in/eason-kang-b4398492), [Developer Advocacy and Support Team](http://aps.autodesk.com)
