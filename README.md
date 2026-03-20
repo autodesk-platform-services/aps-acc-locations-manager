@@ -125,8 +125,8 @@ Watch [this video](https://www.youtube.com/watch?v=Oqa9O20Gj0c) on how to deploy
 Documentation:
 
 - [Data Management API](https://aps.autodesk.com/en/docs/data/v2/overview/)
-- [Locations API Field Guid](https://aps.autodesk.com/en/docs/acc/v1/overview/field-guide/locations/)
-- [Locations API Reference](https://aps.autodesk.com/en/docs/acc/v1/reference/http/locations-nodes-GET/)
+- [Forma Locations API Field Guid](https://aps.autodesk.com/en/docs/acc/v1/overview/field-guide/locations/)
+- [Forma Locations API Reference](https://aps.autodesk.com/en/docs/acc/v1/reference/http/locations-nodes-GET/)
 - [Postman Collection for Locations API](https://github.com/autodesk-platform-services/aps-autodesk.build.api-postman.collection/tree/main/Locations%20API)
 - [Model Properties API Reference](https://aps.autodesk.com/en/docs/acc/v1/reference/http/index-v2-index-jobs-batch-status-post/)
 
