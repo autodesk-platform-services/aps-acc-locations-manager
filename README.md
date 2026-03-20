@@ -1,13 +1,13 @@
-# Forma for Construction Locations Manager Sample
+# Autodesk Forma Locations Manager Sample
 
 ![Platforms](https://img.shields.io/badge/platform-Windows|MacOS-lightgray.svg)
 ![.NET](https://img.shields.io/badge/.NET%20-7.0-blue.svg)
 [![MIT](https://img.shields.io/badge/License-MIT-blue.svg)](http://opensource.org/licenses/MIT)
 
 [![oAuth2](https://img.shields.io/badge/oAuth2-v1-green.svg)](http://aps.autodesk.com/)
-[![Forma-Data-Management](https://img.shields.io/badge/Forma%20Data%20Management-v1-green.svg)](http://aps.autodesk.com/)
+[![Data-Management](https://img.shields.io/badge/Forma%20Data%20Management-v1-green.svg)](http://aps.autodesk.com/)
 [![Forma Locations API](https://img.shields.io/badge/Forma%20Locations%20api-v1-green.svg)](https://aps.autodesk.com/en/docs/acc/v1/reference/http/locations-nodes-GET/)
-[![Forma for Construction Model Properties API](https://img.shields.io/badge/Forma%20Model%20Properties%20api-v1-green.svg)](https://aps.autodesk.com/en/docs/acc/v1/reference/http/index-v2-index-fields-get/)
+[![APS Model Properties API](https://img.shields.io/badge/APS%20Model%20Properties%20api-v1-green.svg)](https://aps.autodesk.com/en/docs/acc/v1/reference/http/index-v2-index-fields-get/)
 
 [![Level](https://img.shields.io/badge/Level-Basic-blue.svg)](http://developer.autodesk.com/)
 
@@ -15,7 +15,7 @@
 
 This sample demonstrates the following use cases:
 
-* View Locations tree (included sub-location nodes) similar to Forma for Construction Admin Locations UI.
+* View Locations tree (included sub-location nodes) similar to Forma Admin Locations UI.
 * Add Locations node
   * Add sub-locations nodes
   * Add node before and after the target node. (in the same tree tier)
@@ -37,8 +37,8 @@ Here is the video demonstrating how this sample works quickly.
 
 ## Prerequisites
 
-1. **APS Hub**: Learn how to create a APS Hub, activate your subscription, and create an app at [this tutorial](http://aps.autodesk.com/tutorials/#/account/).
-2. **Forma for Construction Hub**: must be Hub Admin to add the app integration. [Learn about provisioning](https://aps.autodesk.com/en/docs/bim360/v1/tutorials/getting-started/manage-access-to-docs/).
+1. **APS Account**: Learn how to create a APS Account, activate your subscription, and create an app at [this tutorial](http://aps.autodesk.com/tutorials/#/account/).
+2. **Autodesk Forma Hub**: must be Hub Admin to add the app integration. [Learn about provisioning](https://aps.autodesk.com/en/docs/bim360/v1/tutorials/getting-started/manage-access-to-docs/).
 3. **Visual Studio**: Either Community 2019+ (Windows) or Code (Windows, MacOS).
 4. **.NET 7** basic knowledge with C#
 5. **JavaScript** basic knowledge with **jQuery**
@@ -73,7 +73,7 @@ At the `.vscode\launch.json`, find the env vars and add your APS Client ID, Secr
 },
 ```
 
-Run the app. Open `http://localhost:3000` to view your files. It may be required to **Enable my Forma for Construction Hub** (see app top-right).
+Run the app. Open `http://localhost:3000` to view your files. It may be required to **Enable my Forma Hub** (see app top-right).
 
 ## Use Cases
 
@@ -124,7 +124,7 @@ Watch [this video](https://www.youtube.com/watch?v=Oqa9O20Gj0c) on how to deploy
 
 Documentation:
 
-- [Forma Data Management API](https://aps.autodesk.com/en/docs/data/v2/overview/)
+- [Data Management API](https://aps.autodesk.com/en/docs/data/v2/overview/)
 - [Locations API Field Guid](https://aps.autodesk.com/en/docs/acc/v1/overview/field-guide/locations/)
 - [Locations API Reference](https://aps.autodesk.com/en/docs/acc/v1/reference/http/locations-nodes-GET/)
 - [Postman Collection for Locations API](https://github.com/autodesk-platform-services/aps-autodesk.build.api-postman.collection/tree/main/Locations%20API)
@@ -156,6 +156,7 @@ This sample is licensed under the terms of the [MIT License](http://opensource.o
 - 11/22/2022: Update readme.
 - 12/07/2022: Migrated to use `Startup.cs` approach to configure the app.
 - 02/17/2023: Migrated to .NET 7.
+- 03/24/2026: ACC to Forma Rebranding
 
 ## Written by
 
