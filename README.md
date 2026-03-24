@@ -31,7 +31,7 @@ This sample demonstrates the following use cases:
 
 Here is the video demonstrating how this sample works quickly.
 
-[![](http://img.youtube.com/vi/sD9AZfFpydQ/0.jpg)](http://www.youtube.com/watch?v=sD9AZfFpydQ "Demo how to manage ACC **Locations** data and import locations from the selected Revit model.")
+[![](http://img.youtube.com/vi/sD9AZfFpydQ/0.jpg)](http://www.youtube.com/watch?v=sD9AZfFpydQ "Demo how to manage Forma **Locations** data and import locations from the selected Revit model.")
 
 # Web App Setup
 
