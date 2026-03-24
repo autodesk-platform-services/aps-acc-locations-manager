@@ -1,4 +1,4 @@
-# ACC Locations Manager Sample
+# Forma Locations Manager Sample
 
 ![Platforms](https://img.shields.io/badge/platform-Windows|MacOS-lightgray.svg)
 ![.NET](https://img.shields.io/badge/.NET%20-7.0-blue.svg)
@@ -6,8 +6,8 @@
 
 [![oAuth2](https://img.shields.io/badge/oAuth2-v1-green.svg)](http://aps.autodesk.com/)
 [![Data-Management](https://img.shields.io/badge/Data%20Management-v1-green.svg)](http://aps.autodesk.com/)
-[![ACC Locations API](https://img.shields.io/badge/ACC%20Locations%20api-v1-green.svg)](https://aps.autodesk.com/en/docs/acc/v1/reference/http/locations-nodes-GET/)
-[![ACC Model Properties API](https://img.shields.io/badge/ACC%20Model%20Properties%20api-v1-green.svg)](https://aps.autodesk.com/en/docs/acc/v1/reference/http/index-v2-index-fields-get/)
+[![Forma Locations API](https://img.shields.io/badge/Forma%20Locations%20api-v1-green.svg)](https://aps.autodesk.com/en/docs/acc/v1/reference/http/locations-nodes-GET/)
+[![Forma Model Properties API](https://img.shields.io/badge/Forma%20Model%20Properties%20api-v1-green.svg)](https://aps.autodesk.com/en/docs/acc/v1/reference/http/index-v2-index-fields-get/)
 
 [![Level](https://img.shields.io/badge/Level-Basic-blue.svg)](http://developer.autodesk.com/)
 
@@ -15,7 +15,7 @@
 
 This sample demonstrates the following use cases:
 
-* View Locations tree (included sub-location nodes) similar to ACC Admin Locations UI.
+* View Locations tree (included sub-location nodes) similar to Forma Admin Locations UI.
 * Add Locations node
   * Add sub-locations nodes
   * Add node before and after the target node. (in the same tree tier)
@@ -31,14 +31,14 @@ This sample demonstrates the following use cases:
 
 Here is the video demonstrating how this sample works quickly.
 
-[![](http://img.youtube.com/vi/sD9AZfFpydQ/0.jpg)](http://www.youtube.com/watch?v=sD9AZfFpydQ "Demo how to manage ACC **Locations** data and import locations from the selected Revit model.")
+[![](http://img.youtube.com/vi/sD9AZfFpydQ/0.jpg)](http://www.youtube.com/watch?v=sD9AZfFpydQ "Demo how to manage Forma **Locations** data and import locations from the selected Revit model.")
 
 # Web App Setup
 
 ## Prerequisites
 
 1. **APS Account**: Learn how to create a APS Account, activate your subscription, and create an app at [this tutorial](http://aps.autodesk.com/tutorials/#/account/).
-2. **ACC Account**: must be Account Admin to add the app integration. [Learn about provisioning](https://aps.autodesk.com/en/docs/bim360/v1/tutorials/getting-started/manage-access-to-docs/).
+2. **Forma Account**: must be Account Admin to add the app integration. [Learn about provisioning](https://aps.autodesk.com/en/docs/bim360/v1/tutorials/getting-started/manage-access-to-docs/).
 3. **Visual Studio**: Either Community 2019+ (Windows) or Code (Windows, MacOS).
 4. **.NET 7** basic knowledge with C#
 5. **JavaScript** basic knowledge with **jQuery**
@@ -73,7 +73,7 @@ At the `.vscode\launch.json`, find the env vars and add your APS Client ID, Secr
 },
 ```
 
-Run the app. Open `http://localhost:3000` to view your files. It may be required to **Enable my ACC Account** (see app top-right).
+Run the app. Open `http://localhost:3000` to view your files. It may be required to **Enable my Forma Account** (see app top-right).
 
 ## Use Cases
 
